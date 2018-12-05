@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>LoRa Web Interface</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">LoRa Web Interface</a>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+    <main role="main" class="container-fluid">
+  
+        <div class="row">
+            <div class="col-4">
+                <div class="card border-dark mb-3">
+                    <div class="card-header">Downlink example</div>
+                    <div class="card-body text-dark">
+                        <form>
+                            <div class="form-group">
+                                <label>Application ID</label>
+                                <input id="application_id_downlink" type="text" class="form-control" aria-describedby="applicationIDHelp" placeholder="Application ID">
+                                <small id="applicationIDHelp" class="form-text text-muted">Take a look in the web ui to get the application id.</small>
+                                <label>Device Name</label>
+                                <input id="device_name_downlink" type="text" class="form-control" aria-describedby="deviceNameHelp" placeholder="Device Name">
+                                <small id="deviceNameHelp" class="form-text text-muted">You must populate your device in the backend before sending downlink.</small>
+                            </div>
+                                <button id="button_send_downlink" type="submit" class="btn btn-dark">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <table class="table table-sm table-bordered" id="gateways_table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">MAC</th>
+                            <th scope="col">hostname</th>
+                            <th scope="col">uptime</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <table class="table table-sm table-bordered" id="devices_table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">devEUI</th>
+                                <th scope="col">Last rssi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+  
+    </main>
+
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mqttws31.js"></script>
+    <script src="js/mqtt_controller.js"></script>
+
+    <script>
+        mqtt_connect();
+    </script>
+  </body>
+</html>
